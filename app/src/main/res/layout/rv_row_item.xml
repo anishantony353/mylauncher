@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="appInfo"
+            type="com.anish.mylauncher.model.AppInfo" />
+        
+        <variable
+            name="pos"
+            type="Integer" />
+        
+        <variable
+            name="appInfoClickListener"
+            type="com.anish.mylauncher.model.ClickListener" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:onClick="@{()->appInfoClickListener.onItemClick(appInfo, pos)}">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{appInfo.appName}"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{appInfo.pkgName}"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{appInfo.mainClassName}"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(appInfo.verCode)}"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{appInfo.verName}"/>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:setImage="@{appInfo.icon}"
+            android:scaleType="fitXY"
+            />
+
+    </LinearLayout>
+</layout>
